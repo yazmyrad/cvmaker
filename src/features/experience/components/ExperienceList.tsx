@@ -3,27 +3,39 @@
 import Button from "../../../components/UI/Button";
 import type { ExperienceListProps } from "../types";
 import ExperienceForm from "./ExperienceForm";
+import styles from "./ExperienceList.module.css";
 
 export function ExperienceList(
     {experience, onAdd, onChange, onRemove}: ExperienceListProps
 ){
     return (
-        <section>
+        <section className={styles.section}>
             {
                 experience.length == 0 ? 
-                    (<p>No experience entries yet</p> )
+                    (<p className={styles.empty}>No experience entries yet</p> )
                     :
-                    (experience.map((entry)=>(
-                    <ExperienceForm 
-                        key={entry.id} 
-                        entry={entry} 
-                        onChange={(field, value) => onChange(entry.id, field, value)}
-                        onRemove={() => onRemove(entry.id)} 
-                    />
-                )))
-                
-            }   
-            <Button onClick={onAdd}>Add experience</Button>
+                    (
+                        <div className={styles.cards}>
+                        {experience.map((entry, idx) => (
+                            <div key={entry.id} className={styles.card}>
+                            <div className={styles.cardHeader}>
+                                <h3 className={styles.cardTitle}>
+                                    {[entry.title, entry.company].filter(Boolean).join(" — ") || `Experience #${idx + 1}`}
+                                </h3>
+                            </div>
+                            <ExperienceForm 
+                                key={entry.id} 
+                                entry={entry} 
+                                onChange={(field, value) => onChange(entry.id, field, value)}
+                                onRemove={() => onRemove(entry.id)} 
+                            />
+                            </div>
+                        ))}
+                        </div>
+                    )}
+            <div className={styles.addRow}>
+                <Button onClick={onAdd}>Add experience</Button>
+            </div>
         </section>
     )
 }
