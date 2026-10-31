@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { SkillsProps } from "./types";
 import Button from "../../components/UI/Button";
+import styles from "./Skills.module.css";
 
 export default function Skills({skills, onChange}: SkillsProps){
 

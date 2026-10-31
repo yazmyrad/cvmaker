@@ -1,0 +1,47 @@
+.wrapper {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.inputRow {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.inputRow .input {
+  flex: 1;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.25rem 0.5rem;
+  background: var(--color-primary-ghost);
+  color: var(--color-primary);
+  border-radius: 999px;
+  font-size: 0.875rem;
+}
+
+.chipRemove {
+  /* reuse Button; if you inline a tiny × instead: */
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  font-size: 1rem;
+}
+
+.chipRemove:hover { color: var(--color-danger); }
