@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import './App.css'
-
 import { EducationList } from '../features/education/components/EducationList'
 import type { EducationEntry } from '../features/education/types'
 
@@ -14,6 +12,8 @@ import type { PortfolioEnrty } from '../features/portfolio/types'
 import PortfolioForm from '../features/portfolio/PortfolioForm'
 import { useEntityList } from '../features/common/useEntityList'
 
+import styles from "./App.module.css"
+import CVPreview from '../features/cv/CVPreview'
 
 function App() {
 
@@ -67,46 +67,50 @@ function App() {
     setContact(prev => ({ ...prev, [field]: value }));
   };
 
+  const [introduction, setIntroduction] = useState("");
 
   return (
-    <>
-    <Contacts 
-      contacts={contact}
-      setContacts={updateHeader}
-    />
-    <Introduction />
-    <div>
-      <h2>Education</h2>
-      <EducationList 
-        education={education.items} 
-        onAdd={education.add} 
-        onChange={education.update} 
-        onRemove={education.remove}
-      />
-    </div>
-    <div>
-      <h2>Experience</h2>
-      <ExperienceList 
-        experience={experience.items} 
-        onAdd={experience.add} 
-        onChange={experience.update} 
-        onRemove={experience.remove}
-      />
-    </div>
-    <div>
-      <h2>Skills</h2>
-      <Skills skills={skills} onChange={onChange}/>
-    </div>
-    <div>
-      <h2>Portfolio</h2>
-      <PortfolioForm 
-        projects={portfolio.items}
-        onAdd={portfolio.add}
-        onRemove={portfolio.remove} 
-        onChange={portfolio.update} 
-      />
-    </div>
-    </>
+    <main className={styles.page}>
+      <h1 className={styles.title}>CV Maker</h1>
+      <div className={styles.layout}>
+        <div className={styles.form}>
+          <Contacts 
+            contacts={contact}
+            setContacts={updateHeader}
+          />
+          <Introduction value={introduction} onChange={setIntroduction} />
+          <EducationList 
+            education={education.items} 
+            onAdd={education.add} 
+            onChange={education.update} 
+            onRemove={education.remove}
+          />
+          <ExperienceList 
+            experience={experience.items} 
+            onAdd={experience.add} 
+            onChange={experience.update} 
+            onRemove={experience.remove}
+          />
+          <PortfolioForm 
+            projects={portfolio.items}
+            onAdd={portfolio.add}
+            onRemove={portfolio.remove} 
+            onChange={portfolio.update} 
+          />
+          <Skills skills={skills} onChange={onChange} />
+        </div>
+        <aside className={styles.preview}>
+          <CVPreview
+            contacts={contacts}
+            introduction={introduction}
+            education={education.items}
+            experience={experience.items}
+            projects={projects.items}
+            skills={skills}
+          />
+        </aside>
+      </div>
+    </main>
   )
 }
 

@@ -1,6 +1,12 @@
-.form {
+.section {
   display: grid;
   gap: var(--space-md);
+}
+
+.heading {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .field {
@@ -14,7 +20,7 @@
   color: var(--color-muted);
 }
 
-.input {
+.textarea {
   width: 100%;
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--color-border);
@@ -22,22 +28,13 @@
   background: var(--color-bg);
   color: var(--color-text);
   font: inherit;
+  resize: vertical;
+  min-height: 8rem;
+  line-height: 1.5;
 }
 
-.input:focus-visible {
+.textarea:focus-visible {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-primary-ghost);
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-}
-
-@media (max-width: 640px) {
-  .row {
-    grid-template-columns: 1fr;
-  }
 }

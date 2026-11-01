@@ -10,6 +10,9 @@ export function ExperienceList(
 ){
     return (
         <section className={styles.section}>
+            <div className={styles.header}>
+                <h2 className={styles.heading}>Experience</h2>
+            </div>
             {
                 experience.length == 0 ? 
                     (<p className={styles.empty}>No experience entries yet</p> )
@@ -34,7 +37,7 @@ export function ExperienceList(
                         </div>
                     )}
             <div className={styles.addRow}>
-                <Button onClick={onAdd}>Add experience</Button>
+                <Button onClick={onAdd}>+ Add experience</Button>
             </div>
         </section>
     )
