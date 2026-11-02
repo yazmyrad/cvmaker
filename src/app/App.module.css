@@ -40,3 +40,31 @@
     overflow-y: auto;
   }
 }
+
+@media print {
+  /* Hide everything except the CV */
+  .page > h1,
+  .page > .toolbar,
+  .form {
+    display: none !important;
+  }
+
+  /* Make the preview take full width */
+  .layout {
+    display: block !important;
+  }
+
+  .preview {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Clean up the CV paper look for print */
+  .cv {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+}

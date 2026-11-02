@@ -14,8 +14,11 @@ import { useEntityList } from '../features/common/useEntityList'
 
 import styles from "./App.module.css"
 import CVPreview from '../features/cv/CVPreview'
+import Button from '../components/UI/Button'
+import { useCVPrint } from '../features/cv/lib/useCVPrint'
 
 function App() {
+  const { contentRef, handlePrint } = useCVPrint();
 
   const education = useEntityList<EducationEntry>(
     () => ({ 
@@ -72,6 +75,10 @@ function App() {
   return (
     <main className={styles.page}>
       <h1 className={styles.title}>CV builder</h1>
+      <div className={styles.toolbar}>
+        <Button onClick={handlePrint}>Download PDF</Button>
+      </div>
+
       <div className={styles.layout}>
         <div className={styles.form}>
           <Contacts 
@@ -98,7 +105,7 @@ function App() {
           />
           <Skills skills={skills} onChange={onChange} />
         </div>
-        <aside className={styles.preview}>
+        <aside className={styles.preview} ref={contentRef}>
           <CVPreview
             contacts={contact}
             introduction={introduction}
@@ -106,6 +113,7 @@ function App() {
             experience={experience.items}
             projects={portfolio.items}
             skills={skills}
+            
           />
         </aside>
       </div>
