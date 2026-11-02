@@ -1,5 +1,4 @@
 import type { PortfolioEnrty } from "../../portfolio/types";
-import { formatMonth } from "../lib/formatMonth";
 import styles from "./ExperiencePreview.module.css";
 
 type Props = { items: PortfolioEnrty[] };
@@ -34,12 +33,4 @@ export default function ProjectsPreview({ items }: Props) {
       })}
     </section>
   );
-}
-
-function formatRange(from: string, to: string): string {
-  const a = formatMonth(from);
-  const b = formatMonth(to) || "Present";
-  if (!a && !b) return "";
-  if (!a) return b;
-  return `${a} — ${b}`;
 }

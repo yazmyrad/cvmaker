@@ -71,6 +71,7 @@ export default function ExperienceForm(
                     max={new Date().toISOString().slice(0, 7)}
                     value={entry.from}
                     onChange={(e) => onChange("from", e.target.value)}
+                    placeholder="year-month"
                 />
             </label>
 
@@ -83,6 +84,7 @@ export default function ExperienceForm(
                     max={new Date().toISOString().slice(0, 7)}
                     value={entry.to}
                     onChange={(e) => onChange("to", e.target.value)}
+                    placeholder="year-month"
                 />
             </label>
             <Button variant="danger" onClick={onRemove}>Remove</Button>

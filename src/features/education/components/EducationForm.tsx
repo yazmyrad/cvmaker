@@ -61,6 +61,7 @@ export default function EducationForm(
                     value={entry.from}
                     onChange={(e) => onChange("from", e.target.value)}
                     className={styles.input}
+                    placeholder="year-month"
                 />
             </label>
 
@@ -73,6 +74,7 @@ export default function EducationForm(
                     value={entry.to}
                     onChange={(e) => onChange("to", e.target.value)}
                     className={styles.input}
+                    placeholder="year-month"
                 />
             </label>
 

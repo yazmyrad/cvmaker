@@ -71,12 +71,11 @@ function App() {
 
   return (
     <main className={styles.page}>
-      <h1 className={styles.title}>CV Maker</h1>
+      <h1 className={styles.title}>CV builder</h1>
       <div className={styles.layout}>
         <div className={styles.form}>
           <Contacts 
-            contacts={contact}
-            setContacts={updateHeader}
+            contacts={contact} setContacts={updateHeader}
           />
           <Introduction value={introduction} onChange={setIntroduction} />
           <EducationList 
