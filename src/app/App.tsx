@@ -13,7 +13,7 @@ import PortfolioForm from '../features/portfolio/PortfolioForm'
 import { useEntityList } from '../features/common/useEntityList'
 
 import styles from "./App.module.css"
-import CVPreview from '../features/cv/CVPreview'
+//import CVPreview from '../features/cv/CVPreview'
 
 function App() {
 
@@ -100,14 +100,7 @@ function App() {
           <Skills skills={skills} onChange={onChange} />
         </div>
         <aside className={styles.preview}>
-          <CVPreview
-            contacts={contacts}
-            introduction={introduction}
-            education={education.items}
-            experience={experience.items}
-            projects={projects.items}
-            skills={skills}
-          />
+          
         </aside>
       </div>
     </main>
