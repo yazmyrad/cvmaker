@@ -1,0 +1,38 @@
+.section {
+  margin-bottom: var(--space-lg);
+}
+
+.sectionTitle {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-xs);
+}
+
+.body {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.item {
+  font-size: 0.95rem;
+}
+
+.item::before {
+  content: "•";
+  margin-right: var(--space-xs);
+  color: var(--color-muted);
+}
